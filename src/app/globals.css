@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6f5f1;
+  --foreground: #15161a;
+  --accent: #0a8f57;
+  --line: #e2e0d8;
+  --surface: #efede6;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-line: var(--line);
+  --color-surface: var(--surface);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.011em;
+}
+
+/* tight grotesk headline rhythm */
+.display {
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+}
+
+/* registration cross — the Swiss/technical signature mark.
+   sits centered on a line intersection. */
+.cross {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  color: var(--accent);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 13px;
+  line-height: 13px;
+  text-align: center;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* faint engineering dot-grid for the hero */
+.dotgrid {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* hover reveal for spec rows */
+.spec-row {
+  transition: background 0.18s ease;
+}
+.spec-row:hover {
+  background: rgba(0, 0, 0, 0.025);
+}
+
+::selection {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+/* faint engineering grid — flat, no glow */
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.cursor-blink {
+  animation: blink 1.1s step-end infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* monospace ascii diagram should never wrap weirdly */
+.ascii {
+  white-space: pre;
+  line-height: 1.35;
+}
+
+/* ── retro Mac: drifting multiplayer agent cursors ── */
+@keyframes mac-float-a {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(7px, -6px); }
+}
+@keyframes mac-float-b {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-6px, 5px); }
+}
+@keyframes mac-float-c {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(5px, 7px); }
+}
+.mac-cur-a { animation: mac-float-a 6s ease-in-out infinite; }
+.mac-cur-b { animation: mac-float-b 7.2s ease-in-out infinite; }
+.mac-cur-c { animation: mac-float-c 5.4s ease-in-out infinite; }
+
+/* classic 6-stripe window title bar */
+.mac-titlebar {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #000 0, #000 1px, transparent 1px, transparent 2px
+  );
+}
+
+/* faint dithered pixel desktop */
+.mac-desktop {
+  background-color: #5c7da3;
+  background-image:
+    linear-gradient(135deg, rgba(255,255,255,0.10), rgba(0,0,0,0.18)),
+    radial-gradient(rgba(255,255,255,0.06) 0.5px, transparent 0.5px);
+  background-size: 100% 100%, 3px 3px;
+}
