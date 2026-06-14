@@ -3,22 +3,24 @@
 // hairline margin frame, registration crosses where rules intersect, spec-sheet honesty.
 
 import IMac from "./iMac";
-import CopyCommand from "./CopyCommand";
 
-const AGENTS: { handle: string; role: string; does: string; acts: string }[] = [
-  { handle: "@ops", role: "Operations", does: "back-office, SOPs, scheduling, vendor coordination", acts: "drafts + sends email · manages calendar" },
-  { handle: "@biz", role: "Business / Strategy", does: "pricing, positioning, competitor moves, what to build next", acts: "weekly strategy memo · publishes to Notion" },
-  { handle: "@marketing", role: "Marketing", does: "posts, launch copy, SEO briefs, the content calendar", acts: "drafts launch emails · schedules posts" },
-  { handle: "@support", role: "Customer Support", does: "inbox triage, replies in your voice, complaint → bug list", acts: "drafts replies · weekly issues digest" },
+// Slack workspace invite — drop the real invite URL here.
+const SLACK_INVITE = "https://join.slack.com/t/soloteamavengers/shared_invite/zt-40k47s006-WCMjuJ~ZWY5JHLTcrRXHPw";
+
+const AGENTS: { handle: string; role: string; does: string; acts: string; soon?: boolean }[] = [
+  { handle: "@ops", role: "Operations", does: "back-office, SOPs, vendor coordination, the busywork", acts: "drafts + sends email (you approve)" },
+  { handle: "@biz", role: "Business / Strategy", does: "pricing, positioning, competitor moves, what to build next", acts: "strategy memos · publishes to Notion" },
+  { handle: "@marketing", role: "Marketing", does: "posts, launch copy, SEO briefs, the content calendar", acts: "drafts launch emails · drafts posts & threads" },
+  { handle: "@support", role: "Customer Support", does: "replies in your voice, complaint → bug list", acts: "drafts replies · summarizes issues" },
   { handle: "@design", role: "Design", does: "landing critiques, brand direction, build-ready UI specs", acts: "design specs + briefs · asset checklists" },
-  { handle: "@finance", role: "Finance", does: "runway math, invoice chasing, plain-English P&L", acts: "invoice reminders · monthly summary" },
+  { handle: "@finance", role: "Finance", does: "runway math, invoice chasing, plain-English P&L", acts: "coming soon", soon: true },
 ];
 
 const SPECS: [string, string][] = [
   ["agents", "3 on starter · up to 5 on pilot"],
   ["interface", "Slack-first — agents join your workspace as @mentionable members"],
   ["memory", "persistent, per-company. one shared brain across every agent"],
-  ["actions", "email drafts · Notion publishing · post scheduling — human-approved"],
+  ["actions", "email (draft + send) · Notion publishing · post drafts — all human-approved"],
   ["models", "frontier models on our keys. no API setup, no token math"],
   ["approval", "every outbound action is opt-in. nothing ships without you"],
   ["data", "your business context stays yours. never used for training"],
@@ -35,17 +37,27 @@ const COMPARE: { dim: string; agency: string; contractor: string; chatgpt: strin
 ];
 
 const STEPS: { cmd: string; title: string; out: string }[] = [
-  { cmd: "soloteam brief --once", title: "Write one brief.", out: "What you're building, who it's for, how you talk. Written once — every agent reads the same brief and remembers it forever." },
-  { cmd: "soloteam hire ops biz marketing", title: "Pick your first three.", out: "Each a domain specialist with persistent memory of your company — not a blank chatbot in a costume." },
-  { cmd: "soloteam deploy --to slack", title: "Deploy to Slack.", out: "They join your workspace as members you @mention. They draft, propose, and wait. You approve. Then they ship." },
+  { cmd: "/invite @SoloTeam", title: "Add them to your Slack.", out: "Your agents join your workspace as members you @mention — no new app, no new tab to forget." },
+  { cmd: "@SoloTeam read our site & remember what we do", title: "Brief them once.", out: "Tell them what you're building, or point them at your site — they read it and remember it forever, shared across the whole team." },
+  { cmd: "@marketing draft our launch thread", title: "Put them to work.", out: "@mention any agent. They draft, propose, and wait. You approve. Then they ship." },
 ];
 
 const FAQS: [string, string][] = [
-  ["Is this just ChatGPT with system prompts?", "No. Each agent has persistent memory of your business that compounds over time, a real domain playbook, and the ability to take approved actions — send email, publish to Notion, schedule posts. A chat session forgets you. Your team doesn't."],
+  ["Is this just ChatGPT with system prompts?", "No. Each agent has persistent memory of your business that compounds over time, a real domain playbook, and the ability to take approved actions — send email, publish to Notion, draft posts. A chat session forgets you. Your team doesn't."],
   ["Do agents act without my approval?", "Never. Agents draft and propose; you approve. Every outbound action — every email, post, and published doc — requires an explicit yes."],
   ["Do I need my own API keys?", "No. Inference runs on our keys and is baked into the flat monthly price. You never think about tokens."],
   ["Where do I talk to my agents?", "In your Slack. During the pilot, agents join your workspace as members you @mention — no new app, no new tab to forget. A dedicated web workspace comes later."],
   ["What's in the pilot?", "Start with 3 agents of your choice, expand to 5. Limited seats — we onboard founders in small batches so every team gets tuned properly."],
+];
+
+// honest roadmap — capabilities not live yet
+const ROADMAP: { name: string; detail: string }[] = [
+  { name: "@finance", detail: "runway math, invoice chasing, plain-English P&L" },
+  { name: "calendar", detail: "@ops books & manages meetings — Google Calendar" },
+  { name: "inbox triage", detail: "@support reads and replies to your real inbox — Gmail" },
+  { name: "post scheduling", detail: "@marketing schedules posts to X & LinkedIn, not just drafts" },
+  { name: "proactive briefings", detail: "scheduled digests & monitoring — not just on-demand" },
+  { name: "web workspace", detail: "a dedicated app beyond Slack" },
 ];
 
 // section wrapper: top hairline + registration crosses at the rule intersections
@@ -94,8 +106,9 @@ export default function Home() {
               <a href="#roster" className="hover:text-neutral-900">roster</a>
               <a href="#how" className="hover:text-neutral-900">how</a>
               <a href="#compare" className="hover:text-neutral-900">vs.</a>
-              <a href="#specs" className="hover:text-neutral-900">specs</a>
               <a href="#pricing" className="hover:text-neutral-900">pricing</a>
+              <a href="/docs" className="hover:text-neutral-900">docs</a>
+              <a href="/changelog" className="hover:text-neutral-900">changelog</a>
             </div>
             <a
               href="#pricing"
@@ -129,10 +142,18 @@ export default function Home() {
                 deploy your team →
               </a>
               <a
-                href="#roster"
-                className="rounded-full border border-line px-6 py-3 font-mono text-[13px] text-neutral-700 transition-colors hover:border-neutral-400"
+                href={SLACK_INVITE}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 font-mono text-[13px] text-neutral-700 transition-colors hover:border-neutral-400"
               >
-                meet the roster
+                <svg width="15" height="15" viewBox="0 0 122.8 122.8" aria-hidden="true">
+                  <path fill="#36C5F0" d="M25.8 77.6c0 7.1-5.8 12.9-12.9 12.9S0 84.7 0 77.6s5.8-12.9 12.9-12.9h12.9v12.9zm6.5 0c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9v32.3c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9V77.6z"/>
+                  <path fill="#2EB67D" d="M45.2 25.8c-7.1 0-12.9-5.8-12.9-12.9S38.1 0 45.2 0s12.9 5.8 12.9 12.9v12.9H45.2zm0 6.5c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9H12.9C5.8 58.1 0 52.3 0 45.2s5.8-12.9 12.9-12.9h32.3z"/>
+                  <path fill="#ECB22E" d="M97 45.2c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9-5.8 12.9-12.9 12.9H97V45.2zm-6.5 0c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9V12.9C64.7 5.8 70.5 0 77.6 0s12.9 5.8 12.9 12.9v32.3z"/>
+                  <path fill="#E01E5A" d="M77.6 97c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9-12.9-5.8-12.9-12.9V97h12.9zm0-6.5c-7.1 0-12.9-5.8-12.9-12.9s5.8-12.9 12.9-12.9h32.3c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9H77.6z"/>
+                </svg>
+                add to Slack
               </a>
             </div>
           </div>
@@ -140,9 +161,9 @@ export default function Home() {
           {/* the product */}
           <div className="mx-auto max-w-3xl px-6 pb-20 pt-8">
             <IMac />
-            <div className="mx-auto mt-8 max-w-md">
-              <CopyCommand cmd="soloteam deploy --to slack" />
-            </div>
+            <p className="mx-auto mt-7 max-w-md text-center font-mono text-[13px] leading-relaxed text-neutral-500">
+              one desktop · one shared memory · every action waits for your <span className="text-accent">approval</span>
+            </p>
           </div>
         </section>
 
@@ -196,10 +217,17 @@ export default function Home() {
                 key={a.handle}
                 className={`spec-row grid gap-1 px-4 py-4 font-mono text-[13px] sm:grid-cols-[120px_160px_1fr_1fr] sm:gap-4 ${i !== 0 ? "border-t border-line" : ""}`}
               >
-                <span className="text-accent">{a.handle}</span>
-                <span className="text-neutral-800">{a.role}</span>
+                <span className={a.soon ? "text-neutral-400" : "text-accent"}>{a.handle}</span>
+                <span className={a.soon ? "text-neutral-400" : "text-neutral-800"}>
+                  {a.role}
+                  {a.soon && (
+                    <span className="ml-2 rounded-sm border border-line px-1.5 py-0.5 text-[10px] uppercase tracking-wider text-neutral-400">
+                      soon
+                    </span>
+                  )}
+                </span>
                 <span className="text-neutral-500">{a.does}</span>
-                <span className="text-neutral-500">{a.acts}</span>
+                <span className={a.soon ? "text-neutral-400" : "text-neutral-500"}>{a.acts}</span>
               </div>
             ))}
           </div>
@@ -250,7 +278,7 @@ export default function Home() {
                   <span className="font-mono text-xs text-neutral-400">{String(i + 1).padStart(2, "0")}</span>
                   <h3 className="mt-1 font-mono text-[15px] font-semibold text-neutral-900">{s.title}</h3>
                   <code className="mt-3 inline-block bg-surface px-2.5 py-1 font-mono text-xs text-neutral-700">
-                    <span className="text-neutral-400">$ </span>{s.cmd}
+                    <span className="text-accent">›</span> {s.cmd}
                   </code>
                 </div>
                 <p className="font-mono text-[13px] leading-relaxed text-neutral-600">{s.out}</p>
@@ -306,8 +334,33 @@ export default function Home() {
           </p>
         </Section>
 
+        {/* ── roadmap / coming soon ── */}
+        <Section id="roadmap" slug="coming soon" fig="06 / on the roadmap">
+          <h2 className="display max-w-2xl text-3xl font-semibold text-neutral-900 sm:text-[2.6rem]">
+            What&apos;s next.
+          </h2>
+          <p className="mt-5 max-w-lg font-mono text-[13px] leading-relaxed text-neutral-600">
+            Live today: chat, shared memory, web research, email, Notion, post drafts — all
+            approved by you. These are next on the build.
+          </p>
+          <div className="mt-12 border border-line">
+            {ROADMAP.map((r, i) => (
+              <div
+                key={r.name}
+                className={`spec-row grid items-center gap-1 px-4 py-4 font-mono text-[13px] sm:grid-cols-[200px_1fr_70px] ${i !== 0 ? "border-t border-line" : ""}`}
+              >
+                <span className="text-neutral-800">{r.name}</span>
+                <span className="text-neutral-500">{r.detail}</span>
+                <span className="justify-self-start rounded-sm border border-line px-1.5 py-0.5 text-[10px] uppercase tracking-wider text-neutral-400 sm:justify-self-end">
+                  soon
+                </span>
+              </div>
+            ))}
+          </div>
+        </Section>
+
         {/* ── pricing ── */}
-        <Section id="pricing" slug="pricing" fig="06 / flat tiers">
+        <Section id="pricing" slug="pricing" fig="07 / flat tiers">
           <h2 className="display max-w-2xl text-3xl font-semibold text-neutral-900 sm:text-[2.6rem]">
             Flat. Monthly. No token math.
           </h2>
@@ -368,7 +421,7 @@ export default function Home() {
         </Section>
 
         {/* ── faq ── */}
-        <Section id="faq" slug="faq" fig="07 / fair questions">
+        <Section id="faq" slug="faq" fig="08 / fair questions">
           <h2 className="display max-w-2xl text-3xl font-semibold text-neutral-900 sm:text-[2.6rem]">
             Fair questions.
           </h2>
