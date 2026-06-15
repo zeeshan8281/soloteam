@@ -15,6 +15,19 @@ interface Release {
 
 const RELEASES: Release[] = [
   {
+    version: "1.1",
+    date: "2026-06-15",
+    title: "The team gets proactive",
+    tag: "live",
+    items: [
+      "Daily brief — turn it on in any channel (“daily brief on”) and your team posts a short morning summary: what’s waiting on your approval and what moved. Off by default.",
+      "Agents read your Notion — point them at a doc or topic and they pull it up and use it, not just publish to it.",
+      "Agents consult each other — @biz can pull in @marketing mid-answer instead of you re-routing.",
+      "“What do you remember?” — ask any channel what it knows and see the shared brain at a glance.",
+      "Coming soon: Gmail & calendar reading (inbox triage, meeting prep) — wiring up next.",
+    ],
+  },
+  {
     version: "1.0",
     date: "2026-06-14",
     title: "Hardened for real use",
