@@ -406,7 +406,7 @@ export default function Home() {
                 $199<span className="text-base font-normal text-neutral-400">/mo</span>
               </p>
               <ul className="mt-6 space-y-2.5 font-mono text-[13px] text-neutral-500">
-                {["everything in full team", "multiple seats + roles", "shared team workspace", "SSO + audit log"].map((f) => (
+                {["everything in full team", "multiple seats + roles", "shared team workspace", "priority support"].map((f) => (
                   <li key={f} className="flex gap-2"><span className="text-neutral-400">+</span> {f}</li>
                 ))}
               </ul>

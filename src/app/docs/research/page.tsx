@@ -100,14 +100,6 @@ export default function Research() {
           the market discovered it needs.
         </P>
 
-        <H3>There&apos;s a governance &amp; security gap to own</H3>
-        <P>
-          Sensitive business data routinely gets fed into public AI tools (~11% of submitted content may contain
-          sensitive info), yet only <b className="text-neutral-900">1 in 5 companies</b> have mature governance for AI.
-          &quot;Your data stays yours, every action is human-approved, and everything is auditable&quot; is a trust story
-          SoloTeam can own — and the reason an audit log is on the roadmap.
-        </P>
-
         <H3>Integration breadth is the #1 differentiator</H3>
         <P>
           The clearest signal of all: <b className="text-neutral-900">&quot;if AI isn&apos;t connected to your existing systems,
@@ -136,7 +128,6 @@ export default function Research() {
           items={[
             <><b className="text-neutral-900">More integrations, fast</b> — HubSpot, Stripe, Calendly, Shopify next, on the OAuth framework. (Answers the #1 differentiator.)</>,
             <><b className="text-neutral-900">Scheduled / recurring tasks</b> — &quot;every Monday draft the update&quot; — the biggest daily-use hook.</>,
-            <><b className="text-neutral-900">Activity log / audit trail</b> — answers the governance gap; builds team trust.</>,
             <><b className="text-neutral-900">Starter playbooks</b> — deploy a ready-made recipe and customize, to cut time-to-value.</>,
             <><b className="text-neutral-900">File &amp; attachment reading</b> — decks, contracts, specs dropped in Slack.</>,
           ]}

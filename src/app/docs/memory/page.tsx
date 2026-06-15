@@ -61,7 +61,7 @@ export default function Memory() {
         <FAQ
           items={[
             ["Is my data used to train models?", "No. Your business context is yours and isn't used for training."],
-            ["Can I delete something it remembered?", "Tell it in the channel — e.g. \"forget that we were considering the $199 tier.\" You can also ask what it remembers to audit it."],
+            ["Can I delete something it remembered?", "Tell it in the channel — e.g. \"forget that we were considering the $199 tier.\" You can also ask what it remembers to review it."],
             ["Does memory carry across channels?", <>No — it&apos;s isolated per channel by design. Put work you want shared in the same channel.</>],
           ]}
         />
