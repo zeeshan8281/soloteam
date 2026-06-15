@@ -41,7 +41,10 @@ export default function Pricing() {
         </P>
       </div>
 
-      <PageNav prev={{ href: "/docs/faq", label: "FAQ" }} />
+      <PageNav
+        prev={{ href: "/docs/faq", label: "FAQ" }}
+        next={{ href: "/docs/research", label: "The research behind it" }}
+      />
     </article>
   );
 }

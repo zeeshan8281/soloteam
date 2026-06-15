@@ -38,6 +38,7 @@ export const NAV: { group: string; items: { href: string; label: string }[] }[] 
       { href: "/docs/troubleshooting", label: "Troubleshooting" },
       { href: "/docs/faq", label: "FAQ" },
       { href: "/docs/pricing", label: "Pricing" },
+      { href: "/docs/research", label: "Research behind it" },
     ],
   },
 ];
