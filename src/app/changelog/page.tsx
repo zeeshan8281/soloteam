@@ -15,6 +15,18 @@ interface Release {
 
 const RELEASES: Release[] = [
   {
+    version: "1.2",
+    date: "2026-06-15",
+    title: "Connect your tools in one click",
+    tag: "live",
+    items: [
+      "Connect your own Notion, Gmail & Calendar with one click — no API keys, nothing technical. Just say “connect notion” or “connect google” and authorize in your browser.",
+      "Each channel links its own tools, so a client channel reads that client's workspace — never crossed.",
+      "Your agents now read your Notion docs, triage your inbox, and check your calendar — then draft with that context.",
+      "Built on a connection framework, so more integrations (CRM, Linear, and more) plug in fast.",
+    ],
+  },
+  {
     version: "1.1",
     date: "2026-06-15",
     title: "The team gets proactive",
