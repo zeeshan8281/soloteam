@@ -368,61 +368,63 @@ export default function Home() {
         {/* ── pricing ── */}
         <Section id="pricing" slug="pricing" fig="07 / flat tiers">
           <h2 className="display max-w-2xl text-3xl font-semibold text-neutral-900 sm:text-[2.6rem]">
-            Flat. Monthly. No token math.
+            Pick the brain. Flat monthly. No token math.
           </h2>
           <p className="mt-5 max-w-lg font-mono text-[13px] leading-relaxed text-neutral-600">
-            Inference runs on our keys and it&apos;s baked in. Compare it to the other option:
-            a single part-time hire.
+            Plans differ by the AI model behind your agents — fast open models on Basic, frontier
+            models on Custom. Inference is baked in and flat: no credits, no surprises.
           </p>
 
           <div className="mt-12 grid border border-line sm:grid-cols-3">
             <div className="p-7">
-              <p className="font-mono text-[11px] uppercase tracking-wider text-neutral-400">starter</p>
+              <p className="font-mono text-[11px] uppercase tracking-wider text-neutral-400">basic</p>
               <p className="mt-3 font-mono text-4xl font-semibold text-neutral-900">
-                $49<span className="text-base font-normal text-neutral-400">/mo</span>
+                $19<span className="text-base font-normal text-neutral-400">/mo</span>
               </p>
-              <ul className="mt-6 space-y-2.5 font-mono text-[13px] text-neutral-600">
-                {["3 agents of your choice", "shared company memory", "email drafts + Notion + scheduling", "unlimited chat"].map((f) => (
+              <p className="mt-2 font-mono text-[11px] text-neutral-400">fast open models</p>
+              <ul className="mt-5 space-y-2.5 font-mono text-[13px] text-neutral-600">
+                {["3 agents of your choice", "1 seat", "Notion · Gmail · Calendar", "shared memory + approvals"].map((f) => (
                   <li key={f} className="flex gap-2"><span className="text-accent">+</span> {f}</li>
                 ))}
               </ul>
-              <a href="mailto:zeeshan8281@gmail.com?subject=SoloTeam%20pilot%20%E2%80%94%20starter" className="mt-7 block border border-line py-2.5 text-center font-mono text-[13px] text-neutral-800 transition-colors hover:border-neutral-400">
-                join waitlist
+              <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="mt-7 block border border-line py-2.5 text-center font-mono text-[13px] text-neutral-800 transition-colors hover:border-neutral-400">
+                request access
               </a>
             </div>
             <div className="relative border-t border-line bg-surface p-7 sm:border-l sm:border-t-0">
-              <span className="absolute right-7 top-7 border border-accent px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-accent">pilot</span>
-              <p className="font-mono text-[11px] uppercase tracking-wider text-neutral-400">full team</p>
+              <span className="absolute right-7 top-7 border border-accent px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-accent">most popular</span>
+              <p className="font-mono text-[11px] uppercase tracking-wider text-neutral-400">pro</p>
               <p className="mt-3 font-mono text-4xl font-semibold text-neutral-900">
-                $99<span className="text-base font-normal text-neutral-400">/mo</span>
+                $49<span className="text-base font-normal text-neutral-400">/mo</span>
               </p>
-              <ul className="mt-6 space-y-2.5 font-mono text-[13px] text-neutral-600">
-                {["5 agents — the whole roster minus one", "everything in starter", "priority onboarding (we tune your brief)", "early access to new actions"].map((f) => (
+              <p className="mt-2 font-mono text-[11px] text-neutral-400">frontier-class models</p>
+              <ul className="mt-5 space-y-2.5 font-mono text-[13px] text-neutral-600">
+                {["all 5 agents", "up to 3 seats", "everything in Basic + more integrations", "scheduled / recurring tasks", "priority onboarding"].map((f) => (
                   <li key={f} className="flex gap-2"><span className="text-accent">+</span> {f}</li>
                 ))}
               </ul>
-              <a href="mailto:zeeshan8281@gmail.com?subject=SoloTeam%20pilot%20%E2%80%94%20full%20team" className="mt-7 block bg-accent py-2.5 text-center font-mono text-[13px] font-semibold text-white transition-opacity hover:opacity-90">
-                join the pilot →
+              <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="mt-7 block bg-accent py-2.5 text-center font-mono text-[13px] font-semibold text-white transition-opacity hover:opacity-90">
+                request beta access →
               </a>
             </div>
             <div className="relative border-t border-line p-7 sm:border-l sm:border-t-0">
-              <span className="absolute right-7 top-7 border border-line px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-neutral-400">soon</span>
-              <p className="font-mono text-[11px] uppercase tracking-wider text-neutral-400">team</p>
-              <p className="mt-3 font-mono text-4xl font-semibold text-neutral-400">
-                $199<span className="text-base font-normal text-neutral-400">/mo</span>
+              <p className="font-mono text-[11px] uppercase tracking-wider text-neutral-400">custom</p>
+              <p className="mt-3 font-mono text-4xl font-semibold text-neutral-900">
+                Let&apos;s talk
               </p>
-              <ul className="mt-6 space-y-2.5 font-mono text-[13px] text-neutral-500">
-                {["everything in full team", "multiple seats + roles", "shared team workspace", "priority support"].map((f) => (
-                  <li key={f} className="flex gap-2"><span className="text-neutral-400">+</span> {f}</li>
+              <p className="mt-2 font-mono text-[11px] text-neutral-400">top frontier + your choice</p>
+              <ul className="mt-5 space-y-2.5 font-mono text-[13px] text-neutral-600">
+                {["everything in Pro", "unlimited seats + roles", "multi-client / agency mode", "all integrations + priority", "white-glove onboarding"].map((f) => (
+                  <li key={f} className="flex gap-2"><span className="text-accent">+</span> {f}</li>
                 ))}
               </ul>
-              <a href="mailto:zeeshan8281@gmail.com?subject=SoloTeam%20%E2%80%94%20notify%20me%20(team%20plan)" className="mt-7 block border border-line py-2.5 text-center font-mono text-[13px] text-neutral-500 transition-colors hover:border-neutral-400">
-                notify me →
+              <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="mt-7 block border border-line py-2.5 text-center font-mono text-[13px] text-neutral-800 transition-colors hover:border-neutral-400">
+                book a call →
               </a>
             </div>
           </div>
           <p className="mt-5 font-mono text-[11px] text-neutral-400">
-            <span className="text-accent">▸</span> for solo founders &amp; small teams · more plans coming soon.
+            <span className="text-accent">▸</span> free for selected founders during the private beta · prices lock at launch · for solo founders, small teams &amp; agencies.
           </p>
         </Section>
 
