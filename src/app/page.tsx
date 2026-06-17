@@ -6,6 +6,8 @@ import IMac from "./iMac";
 
 // Slack workspace invite — drop the real invite URL here.
 const SLACK_INVITE = "https://join.slack.com/t/soloteamavengers/shared_invite/zt-40k47s006-WCMjuJ~ZWY5JHLTcrRXHPw";
+// Beta access — book a 30-min onboarding call.
+const CALENDLY = "https://calendly.com/zeeshan8281/30min";
 
 const AGENTS: { handle: string; role: string; does: string; acts: string; soon?: boolean }[] = [
   { handle: "@ops", role: "Operations", does: "back-office, SOPs, vendor coordination, the busywork", acts: "drafts + sends email (you approve)" },
@@ -111,10 +113,12 @@ export default function Home() {
               <a href="/changelog" className="hover:text-neutral-900">changelog</a>
             </div>
             <a
-              href="#pricing"
+              href={CALENDLY}
+              target="_blank"
+              rel="noopener noreferrer"
               className="border border-accent/60 px-3 py-1.5 font-mono text-xs text-accent transition-colors hover:bg-accent hover:text-white"
             >
-              join pilot →
+              request access →
             </a>
           </div>
         </nav>
@@ -124,7 +128,7 @@ export default function Home() {
           <div className="mx-auto max-w-3xl px-6 pb-6 pt-20 text-center sm:pt-28">
             <p className="mb-7 inline-flex items-center gap-2 border border-line bg-surface px-2.5 py-1 font-mono text-[11px] text-neutral-600">
               <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-accent" />
-              pilot · seats: limited
+              private beta · limited seats
             </p>
             <h1 className="display mx-auto max-w-3xl text-[2.9rem] font-semibold tracking-tight text-neutral-900 sm:text-[4.5rem]">
               Your first five hires are <span className="text-accent">agents</span>.
@@ -136,10 +140,12 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <a
-                href="#pricing"
+                href={CALENDLY}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-full bg-accent px-6 py-3 font-mono text-[13px] font-semibold text-white transition-transform hover:scale-[1.03]"
               >
-                deploy your team →
+                request beta access →
               </a>
               <a
                 href={SLACK_INVITE}
@@ -447,8 +453,8 @@ export default function Home() {
             <p className="mx-auto mt-5 max-w-md font-mono text-[13px] leading-relaxed text-neutral-600">
               Deploy your first three agents this week. Briefed, in your Slack, and useful by Friday.
             </p>
-            <a href="#pricing" className="mt-9 inline-block bg-accent px-6 py-3 font-mono text-[13px] font-semibold text-white transition-opacity hover:opacity-90">
-              deploy your team →
+            <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="mt-9 inline-block bg-accent px-6 py-3 font-mono text-[13px] font-semibold text-white transition-opacity hover:opacity-90">
+              request beta access →
             </a>
           </div>
         </Section>
