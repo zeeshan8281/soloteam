@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Lead, P, H2, Bullets, Table, Cmd, Screen, Callout, FAQ, PageHead, PageNav } from "../components";
+import { Lead, P, H2, Bullets, Table, Screen, Callout, FAQ, PageHead, PageNav } from "../components";
 
 export const metadata = {
   title: "SoloTeam Docs — Outbound actions",

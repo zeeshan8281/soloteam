@@ -42,9 +42,9 @@ export default function Connecting() {
         <Table
           head={["Command", "What it does"]}
           rows={[
-            [<Code>connect notion</Code>, "Start a one-click connection (also: connect google)"],
-            [<Code>disconnect notion</Code>, "Remove this channel's connection to that tool"],
-            [<Code>integrations</Code>, "List what this channel has connected and what's available"],
+            [<Code key="connect">connect notion</Code>, "Start a one-click connection (also: connect google)"],
+            [<Code key="disconnect">disconnect notion</Code>, "Remove this channel's connection to that tool"],
+            [<Code key="integrations">integrations</Code>, "List what this channel has connected and what's available"],
           ]}
         />
         <Cmd>integrations</Cmd>
@@ -76,7 +76,7 @@ export default function Connecting() {
       </div>
 
       <PageNav
-        prev={{ href: "/docs/roster", label: "The roster" }}
+        prev={{ href: "/docs/roster", label: "Specialist capabilities" }}
         next={{ href: "/docs/notion", label: "Notion" }}
       />
     </article>

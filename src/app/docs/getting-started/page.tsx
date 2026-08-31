@@ -1,27 +1,30 @@
-import { Lead, P, H2, Steps, Bullets, Callout, Cmd, Code, Screen, PageHead, PageNav } from "../components";
+import { Lead, P, H2, Bullets, Callout, Cmd, Code, Screen, PageHead, PageNav } from "../components";
 
 export const metadata = {
   title: "SoloTeam Docs — Getting started",
-  description: "Add SoloTeam to Slack and send your first message.",
+  description: "Set up the first client-update workflow in Slack.",
 };
 
 export default function GettingStarted() {
   return (
     <article>
       <PageHead kicker="docs / getting started" title="Getting started">
-        <Lead>From zero to your first answer in about two minutes. No setup, no config files — just Slack.</Lead>
+        <Lead>During the pilot, we configure one real client channel with you and produce the first useful draft together.</Lead>
       </PageHead>
 
       <div className="space-y-5">
         <H2>What you need</H2>
         <Bullets
           items={[
-            <>A Slack workspace with SoloTeam installed. During the pilot we handle the install for you — you&apos;ll see <b className="text-neutral-900">SoloTeam</b> available as an app in your workspace.</>,
-            <>A channel to work in (a normal channel, a private one, or a direct message — all work).</>,
+            <>A Slack workspace where an admin can approve the assisted pilot install.</>,
+            <>One client channel with enough delivery context to draft a real update.</>,
+            <>The authoritative sources for that client — for example a project board, reporting tool, Notion workspace, or calendar.</>,
           ]}
         />
 
-        <H2>Step 1 — Invite SoloTeam to a channel</H2>
+        <H2>Step 1 — Complete assisted installation</H2>
+        <P>We review client isolation, requested Slack scopes, approvers, and the destination before activating the first workflow.</P>
+        <H2>Step 2 — Invite SoloTeam to the client channel</H2>
         <P>In the channel where you want help, type:</P>
         <Cmd>(or run) /invite @SoloTeam</Cmd>
         <P>
@@ -33,12 +36,11 @@ export default function GettingStarted() {
           new messages in this channel.
         </Screen>
 
-        <H2>Step 2 — Say hi</H2>
-        <P>Ask it anything to confirm it&apos;s alive:</P>
-        <Cmd>what can you do?</Cmd>
+        <H2>Step 3 — Draft the first client update</H2>
+        <P>Use real channel context so the first output tests the workflow rather than a generic demo:</P>
+        <Cmd>draft this week&apos;s client update: completed work, current status, blockers, decisions, and next actions</Cmd>
         <Screen>
-          One of the specialists replies in a thread, introducing the team and what it can help with. If you get a
-          reply, you&apos;re connected.
+          SoloTeam posts a draft for review. Check every fact, the client scope, and the intended destination before approving it.
         </Screen>
 
         <H2>What happens automatically the first time</H2>
@@ -50,14 +52,12 @@ export default function GettingStarted() {
           ]}
         />
 
-        <H2>Step 3 — Give it context (recommended)</H2>
+        <H2>Step 4 — Confirm authoritative context</H2>
         <P>
-          SoloTeam gets dramatically more useful once it knows your business. You can just tell it, and it remembers
-          forever:
+          Tell SoloTeam which sources are authoritative for this client and what belongs in the weekly update:
         </P>
-        <Cmd>we&apos;re building a flat-priced AI team for solo founders. our voice is direct, no fluff. remember that.</Cmd>
-        <P>Or point it at something it can read — your website, or your Notion once connected:</P>
-        <Cmd>read our website soloteam.vercel.app and remember what we do</Cmd>
+        <Cmd>for Acme, use this channel and the connected launch board. our client voice is direct and concise. remember that.</Cmd>
+        <P>Missing facts or heavy manual corrections are pilot signals. Add a new integration only when the same source gap repeatedly blocks the workflow.</P>
 
         <H2>How to talk to it</H2>
         <Bullets

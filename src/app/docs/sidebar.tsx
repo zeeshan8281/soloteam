@@ -10,7 +10,7 @@ export const NAV: { group: string; items: { href: string; label: string }[] }[] 
       { href: "/docs", label: "Overview" },
       { href: "/docs/getting-started", label: "Getting started" },
       { href: "/docs/how-it-works", label: "How it works" },
-      { href: "/docs/roster", label: "The roster" },
+      { href: "/docs/roster", label: "Specialist capabilities" },
     ],
   },
   {

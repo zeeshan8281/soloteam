@@ -16,8 +16,8 @@ export default function FaqPage() {
       <FAQ
         items={[
           [
-            "Is this just ChatGPT with a system prompt?",
-            <>No. Each agent has persistent <Link href="/docs/memory" className="text-accent">memory</Link> of your business that compounds over time, a real domain playbook, connected tools (Notion, Gmail, Calendar), and the ability to take approved actions. A chat session forgets you between tabs; your team doesn&apos;t.</>,
+            "Is this another reporting dashboard?",
+            <>No. Keep the project and reporting tools you already use. SoloTeam turns their surrounding Slack context into an approved client update and follow-through loop.</>,
           ],
           [
             "Will an agent do something without my permission?",
@@ -28,8 +28,8 @@ export default function FaqPage() {
             <>No. Connecting tools is a one-click browser login (see <Link href="/docs/connecting" className="text-accent">Connecting your tools</Link>). Inference runs on our keys — you never think about tokens or models.</>,
           ],
           [
-            "Where do I talk to my agents?",
-            "In Slack — they join as @mentionable members. A dedicated web workspace may come later, but Slack is the home for the pilot.",
+            "Where does the workflow run?",
+            "In Slack. The pilot starts in one client channel and adds approved connected sources only where the workflow needs them.",
           ],
           [
             "How is my data handled?",
@@ -41,11 +41,11 @@ export default function FaqPage() {
           ],
           [
             "What does it cost?",
-            <>Flat monthly tiers on our keys — no usage bills. See <Link href="/docs/pricing" className="text-accent">Pricing</Link>.</>,
+            <>The assisted pilot is $99/month for up to five active client channels. See <Link href="/docs/pricing" className="text-accent">Pricing</Link>.</>,
           ],
           [
             "What's coming next?",
-            <>More integrations (CRM, Linear, GitHub), installing into your own Slack workspace, and the @finance specialist. Track progress on the <Link href="/changelog" className="text-accent">changelog</Link>.</>,
+            <>The pilot is focused on reliable weekly updates and follow-through. Broader integrations and product surfaces wait until recurring use and paid renewal validate the workflow. Track releases on the <Link href="/changelog" className="text-accent">changelog</Link>.</>,
           ],
         ]}
       />

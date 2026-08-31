@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Lead, P, H2, Bullets, Cmd, Code, Callout, FAQ, PageHead, PageNav } from "../components";
 
 export const metadata = {

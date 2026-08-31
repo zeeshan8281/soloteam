@@ -2,23 +2,22 @@ import { Lead, P, H2, Bullets, Callout, PageHead, PageNav } from "../components"
 
 export const metadata = {
   title: "SoloTeam Docs — Pricing",
-  description: "Flat monthly tiers, no token math.",
+  description: "Pilot pricing by active client workflow.",
 };
 
 export default function Pricing() {
   return (
     <article>
       <PageHead kicker="docs / pricing" title="Pricing">
-        <Lead>Flat monthly tiers on our keys. No credits, no usage bills, no surprises.</Lead>
+        <Lead>Pay for active client workflows, not named agents or token bundles.</Lead>
       </PageHead>
 
       <div className="space-y-5">
         <H2>Tiers</H2>
         <Bullets
           items={[
-            <><b className="text-neutral-900">Starter — $49/mo.</b> 3 agents of your choice.</>,
-            <><b className="text-neutral-900">Full team — $99/mo.</b> All 5 active specialists.</>,
-            <><b className="text-neutral-900">Team — coming soon.</b> For small teams that outgrow a single seat.</>,
+            <><b className="text-neutral-900">Assisted pilot — $99/mo.</b> Up to 5 active client channels.</>,
+            <><b className="text-neutral-900">Growth test — $149/mo.</b> Up to 10 active client channels.</>,
           ]}
         />
 
@@ -26,18 +25,18 @@ export default function Pricing() {
         <Bullets
           items={[
             "All inference on our keys — you never pay per token or manage an API.",
-            "Connected tools (Notion, Gmail, Calendar) at no extra cost.",
-            "Shared memory and human-approved actions.",
+            "Weekly client update and follow-through workflow.",
+            "Client-scoped context and human-approved outbound actions.",
+            "White-glove setup during the pilot.",
           ]}
         />
 
-        <Callout tone="tip" title="Why flat pricing">
-          <P>The most common complaint about AI-agent tools is unpredictable, usage-based bills. A flat monthly price answers that directly: you know exactly what you pay, and you never get a surprise invoice for a busy week.</P>
+        <Callout tone="tip" title="Why active client channels">
+          <P>The value grows with the number of client relationships receiving a reliable update and follow-through loop. Internal seats and specialist count do not change the price.</P>
         </Callout>
 
         <P>
-          These numbers sit in the validated band for agent platforms, with $49 at the solo-founder impulse threshold —
-          low enough to just try, useful enough to keep.
+          These are pilot test prices, not a claim of proven willingness to pay. Renewal and repeat approved output will determine the long-term packaging.
         </P>
       </div>
 

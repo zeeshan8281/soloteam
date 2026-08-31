@@ -15,6 +15,21 @@ interface Release {
 
 const RELEASES: Release[] = [
   {
+    version: "2.0",
+    date: "2026-09-01",
+    title: "Client operations, not five AI hires",
+    tag: "live",
+    items: [
+      "Repositioned SoloTeam as a Slack-native client-operations copilot for 2–20-person agencies.",
+      "Made the weekly client update and follow-through loop the primary workflow: status, blockers, decisions, next actions, approval, and unresolved follow-ups.",
+      "Added three interactive product scenarios: client update, follow-up, and daily briefing.",
+      "Repackaged the pilot by active client channels: $99 for up to five and a $149 growth test for up to ten.",
+      "Moved acquisition to assisted installation while client isolation, scopes, destination preview, auditability, revocation, and failed-send recovery are verified.",
+      "Removed unsupported contractor-savings claims and the animated savings counter.",
+      "Updated the docs and research page to distinguish external evidence from pricing and demand hypotheses.",
+    ],
+  },
+  {
     version: "1.2",
     date: "2026-06-15",
     title: "Connect your tools in one click",
@@ -123,12 +138,12 @@ const RELEASES: Release[] = [
   {
     version: "0.3",
     date: "2026-06-11",
-    title: "Pricing validated",
+    title: "Initial pricing hypothesis",
     tag: "shipped",
     items: [
-      "Deep market research across 26 sources confirmed the $49 / $99 flat tiers.",
-      "Identified the white space: no one offers memory-sharing, multi-role agents priced flat for solo founders.",
-      "Added a coming-soon Team plan.",
+      "The first market scan proposed $49 / $99 flat agent-count tiers for solo founders.",
+      "The September 2026 research superseded this packaging with active-client-channel pilot tests.",
+      "Retained here as product history, not current willingness-to-pay evidence.",
     ],
   },
   {

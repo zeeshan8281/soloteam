@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { DocsSidebar } from "./sidebar";
+import ThemeToggle from "../ThemeToggle";
 
 export default function DocsLayout({ children }: { children: ReactNode }) {
   return (
@@ -11,10 +12,11 @@ export default function DocsLayout({ children }: { children: ReactNode }) {
             <Link href="/" className="font-mono text-sm font-semibold tracking-tight text-neutral-900">
               Solo<span className="text-accent">Team</span>
             </Link>
-            <div className="flex gap-7 font-mono text-xs text-neutral-500">
+            <div className="flex items-center gap-7 font-mono text-xs text-neutral-500">
               <Link href="/docs" className="text-neutral-900">docs</Link>
               <Link href="/changelog" className="hover:text-neutral-900">changelog</Link>
               <Link href="/" className="hover:text-neutral-900">home →</Link>
+              <ThemeToggle />
             </div>
           </div>
         </nav>
