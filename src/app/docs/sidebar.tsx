@@ -17,6 +17,7 @@ export const NAV: { group: string; items: { href: string; label: string }[] }[] 
     group: "Integrations",
     items: [
       { href: "/docs/connecting", label: "Connecting your tools" },
+      { href: "/docs/discord", label: "Discord setup preview" },
       { href: "/docs/notion", label: "Notion" },
       { href: "/docs/gmail-calendar", label: "Gmail & Calendar" },
       { href: "/docs/outbound", label: "Outbound actions" },

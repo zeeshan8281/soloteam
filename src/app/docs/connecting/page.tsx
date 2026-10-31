@@ -17,6 +17,10 @@ export default function Connecting() {
       </PageHead>
 
       <div className="space-y-5">
+        <P>
+          Looking for Discord? See the <Link href="/docs/discord" className="text-accent">Discord setup preview</Link> for
+          the slash-command workflow and its current availability.
+        </P>
         <H2>What &quot;connecting&quot; actually means</H2>
         <P>
           Connecting gives SoloTeam permission to use a tool on your behalf — like clicking &quot;Sign in with Google&quot; on
